@@ -9,7 +9,7 @@ client = OpenAI()
 
 # load quotes
 with open("quotes.csv", "r") as file:
-    reader = csv.reader(file)
+    reader = csv.reader(file, delimiter=";")
     quotes = list(reader)
 
 # create prompts for each quote
@@ -18,7 +18,7 @@ prompts = [
     for quote in quotes
 ]
 fnames = [hashlib.md5(prompt.encode()).hexdigest() for prompt in prompts]
-fnames = [f"{fname}.jpg" for fname in fnames]
+fnames = [f"{fname}.jpg" for fn0ame in fnames]
 
 # create visualizations
 visualizations = os.listdir("visualizations")
