@@ -18,7 +18,7 @@ prompts = [
     for quote in quotes
 ]
 fnames = [hashlib.md5(prompt.encode()).hexdigest() for prompt in prompts]
-fnames = [f"{fname}.jpg" for fn0ame in fnames]
+fnames = [f"{fname}.jpg" for fname in fnames]
 
 # create visualizations
 visualizations = os.listdir("visualizations")
