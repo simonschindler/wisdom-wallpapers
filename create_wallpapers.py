@@ -57,7 +57,8 @@ for prompt, fname in zip(prompts, fnames):
         img_draw = ImageDraw.Draw(img)
         text_size = 60  # Adjust the text size as desired
 
-        font = ImageFont.truetype("georgia.ttf", text_size)  # Specify the font and size
+        #font = ImageFont.truetype("georgia.ttf", text_size)  # Specify the font and size
+        font = ImageFont.load_default(size=text_size)
         # Calculate the x-coordinate to center the text
         text_width = img_draw.textlength(quote, font=font)
         # add a newline to the quote if it is too long
@@ -73,7 +74,8 @@ for prompt, fname in zip(prompts, fnames):
         img_draw.text((x, y), quote, (255, 255, 255), font=font)
         # add author below quote in white and textsize 40
         author = quotes[fnames.index(fname)][1]
-        font = ImageFont.truetype("georgia.ttf", 40)
+        # font = ImageFont.truetype("georgia.ttf", 40)
+        font = ImageFont.load_default(size=text_size)
         text_width = img_draw.textlength(author, font=font)
         x = (resolution[0] - text_width) // 2
         if multiline:
